@@ -1,0 +1,77 @@
+<!-- Search Result -->
+ <div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Available Buses</h2>
+    <div class="d-flex gap-2">
+      <button class="btn btn-outline-primary">
+        <i class="fa fa-filter me-1"></i>Filter
+      </button>
+      <button class="btn btn-outline-primary">
+        <i class="fa fa-sort me-1"></i>Sort
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Bus Card-->
+     @for (item of busScheduleLists; track $index) {
+      <div class="col-12">
+        <div class="card gradient-card">
+          <div class="gradient-left"></div> <!-- gradient stripe -->
+
+          <div class="card-body">
+            <div class="row align-items-center">
+
+              <div class="col-md-2">
+                <h5 class="card-title">
+                  <i class="fa fa-bus me-2"></i>{{item.bus_name}}
+                </h5>
+                <!-- <p class="text-muted mb-0">
+                  <i class="fa fa-bed me-1"></i>AC Sleeper
+                </p>
+                <div class="mt-2">
+                  <span class="badge bg-success"><i class="fa fa-star me-1"></i>4.5</span>
+                  <span class="badge bg-info ms-1"><i class="fa fa-random me-1"></i>Fast</span>
+                </div> -->
+              </div>
+
+              <div class="col-md-4">
+                <p class="mb-0 text-muted">Route</p>
+                <h6 class="mb-0"><i class="fa-solid fa-clock me-1"></i>
+                  {{item.from_bus_location}} - {{item.to_bus_location}}
+                </h6>
+              </div>
+
+              <div class="col-md-2">
+                <p class="mb-0 text-muted">Date</p>
+                <h6 class="mb-0"><i class="far fa-calendar-check me-1"></i>
+                  {{item.schedule_date | date:'dd MMM yyyy'}}</h6>
+              </div>
+
+              <div class="col-md-2">
+                <p class="mb-0 text-muted">Departure</p>
+                <h6 class="mb-0"><i class="fa-solid fa-clock me-1"></i>
+                   {{item.departure_time ? ('1970-01-01T' + item.departure_time | date:'hh:mm a') : 'No time' }}
+                </h6>
+              </div>
+
+              <div class="col-md-1">
+                <p class="mb-0 text-muted">Price</p>
+                <h6 class="mb-0"><i class="fa-solid fa-money-bill me-1"></i>{{item.price}}</h6>
+                <!-- <small class="text-success"><i class="fa fa-usd me-1"></i>Best Price</small> -->
+              </div>
+
+              <div class="col-md-1">
+                <a [routerLink]="'/book-ticket/' + item.id" class="btn btn-primary w-100">
+                  <i class="fa fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+<!-- /col-12 -->
+     }
+
+ </div>

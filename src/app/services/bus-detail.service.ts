@@ -1,0 +1,25 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subject, BehaviorSubject, catchError, throwError, map } from 'rxjs';
+import { BusDetailBusApi } from '../interface/busDetail.interface';
+import { environment } from '../../environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BusDetailService {
+  private readonly apiUrl: string = environment.apiUrl; //'http://localhost:8000/api/';
+  constructor(private http: HttpClient) { }
+
+
+    // BusDetailBusInfoApi
+    getBusesDetail(): Observable<BusDetailBusApi> {
+      return this.http.get<BusDetailBusApi>(this.apiUrl + 'bus-detail/buses')
+        .pipe(
+          catchError(err => {
+            console.error('Error connecting to api: ', err);
+            return throwError(() => new Error("Failed to get buses description"));
+          })
+        );
+    }
+}

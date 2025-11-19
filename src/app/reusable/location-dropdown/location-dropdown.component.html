@@ -1,0 +1,15 @@
+
+<!-- <div class="col-12"> -->
+  <label class="form-label">
+    <i class="fas" [ngClass]="icon + ' me-1'"></i>{{ label }}
+  </label>
+  <select class="form-select"
+    [ngModel]="selectedValue()"
+    (ngModelChange)="onValueChange($event)"
+>
+    <option [value]="0">Select Location</option>
+    @for (locationList of busLocationList; track $index) {
+      <option [value]="locationList.id">{{locationList.name}}</option>
+    }
+  </select>
+<!-- </div> -->

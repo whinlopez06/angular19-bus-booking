@@ -1,0 +1,129 @@
+/* Balanced container width */
+.container {
+  max-width: 90vw;        /* about 90% of viewport width */
+  width: 100%;
+  margin: 0 auto;          /* center the content */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Title row and buttons */
+.container .d-flex.justify-content-between {
+  flex-wrap: wrap;
+}
+
+.container h2 {
+  font-weight: 600;
+}
+
+/* Row layout adjustments */
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row > .col-12 {
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+}
+
+/* Bus Card */
+.gradient-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  margin-bottom: 1.25rem;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gradient-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Gradient stripe */
+.gradient-left {
+  width: 6px;
+  /* background: linear-gradient(180deg, #007bff, #00c6ff); */
+  background: linear-gradient(
+    to bottom,
+    #ff6a00,
+    #ee0979
+  );
+}
+
+/* Card body */
+.gradient-card .card-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+}
+
+/* Inner row */
+.gradient-card .row {
+  flex: 1;
+  align-items: stretch;
+}
+
+/* Columns inside card */
+.gradient-card .col-md-2,
+.gradient-card .col-md-1,
+.gradient-card .col-md-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Text styling */
+.gradient-card h5,
+.gradient-card h6 {
+  margin-bottom: 0.25rem;
+}
+
+.gradient-card p.text-muted {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Buttons */
+.gradient-card .btn {
+  border-radius: 6px;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Equal height cards */
+.row > .col-12 > .gradient-card {
+  flex: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .gradient-card .card-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gradient-left {
+    width: 100%;
+    height: 5px;
+  }
+}

@@ -1,0 +1,16 @@
+.form-check-inline {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+
+.hover-label .hover-placeholder {
+  display: none; /* Hide the placeholder text by default */
+}
+
+.hover-label:hover .hover-placeholder {
+  display: inline; /* Show the placeholder text on hover */
+  color: #888; /* Optional: Style the placeholder text color */
+  font-style: italic; /* Optional: Style the placeholder text font style */
+  margin-left: 5px; /* Optional: Add some spacing */
+}
