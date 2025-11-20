@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { LoadingService } from '../../shared/loading.service';
 import { NgIf } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-bootstrap-loader',
@@ -26,9 +27,28 @@ import { NgIf } from '@angular/common';
         </div>
       </div>
 
+      <!-- Status Text -->
+      <div class="text-white fs-6">
+        {{ statusText }}
+      </div>
+
     </div>
-  `
+  `,
+  styles: [
+    `
+    .text-white {
+      text-shadow: 1px 1px 2px #000;
+    }
+    `
+  ]
 })
 export class BootstrapLoaderComponent {
   loading = inject(LoadingService);
+  statusText: string = 'Please wait... Waiting for the Render API to respond.';
+  constructor() {
+    if (!environment.production) {
+      this.statusText = 'Please wait… connecting to the API.';
+    }
+  }
+
 }
